@@ -1,27 +1,17 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Members from './components/Members'
-import Experience from './components/Experience'
-import Gallery from './components/Gallery'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
-    <div className="noise-overlay">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Members />
-        <Experience />
-        <Gallery />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
